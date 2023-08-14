@@ -24,3 +24,4 @@ fs.writeFile("output.json", JSON.stringify(log, null, 2), (err) => {
     console.log("success");
   }
 });
+t;
