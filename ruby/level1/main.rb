@@ -17,3 +17,13 @@ def calculate_rental_price(price_per_day, price_per_km, rental_days, distance)
   rental_price = time_component + distance_component
 end
 
+# Calcul et affichage du prix
+input_data["rentals"].each do |rental|
+  car = input_data["cars"].find { |c| c["id"] == rental["car_id"] }
+
+  rental_days = calculate_rental_days(rental["start_date"], rental["end_date"])
+  rental_price = calculate_rental_price(car["price_per_day"], car["price_per_km"], rental_days, rental["distance"])
+
+  puts "Id: #{rental["id"]} - Prix: #{rental_price} euros"
+end
+
